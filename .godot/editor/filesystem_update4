@@ -2,3 +2,4 @@ res://examples/encoding/encode_bytes.tscn
 res://examples/decoding/decode_bytes.gd
 res://examples/decoding/decode_bytes.tscn
 res://examples/encoding/encode_bytes.gd
+res://addons/image_bytes/plugin.gd
