@@ -15,8 +15,6 @@ extends RefCounted
 ## [color=yellow]WARNING: Modifying an image output from this class will corrupt the file stored in it.[/color]
 
 
-## The divisor of the size of the output image
-const OUTPUT_IMAGE_SIZE_DIVISOR = 128
 ## The color to ignore when decoding the image
 const IGNORE_COLOR = Color.HOT_PINK
 
@@ -26,9 +24,9 @@ const IGNORE_COLOR = Color.HOT_PINK
 ## Depending on the size of the data it may take hours to encode
 ## [br][br]
 ## [b][color=yellow]WARNING: DO NOT MODIFY THE OUTPUT OF THIS FUNCTION UNLESS YOU WANT TO MODIFY THE FILE[/color][/b]
-static func encode_data(data_buffer: PackedByteArray) -> Image:
+static func encode_data(data_buffer: PackedByteArray, size_divisor: int = 128) -> Image:
 	# Ensure the image size is calculated based on the specified divisor
-	var pixels_per_unit := roundi(float(len(data_buffer)) / OUTPUT_IMAGE_SIZE_DIVISOR)
+	var pixels_per_unit := roundi(float(len(data_buffer)) / size_divisor)
 	var output_image := Image.create(pixels_per_unit, pixels_per_unit, false, Image.FORMAT_RGB8)
 	var file_index = 0
 

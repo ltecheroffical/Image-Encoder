@@ -1,3 +1,5 @@
-res://app.tscn
-res://addons/image_bytes/plugin.gd
+res://examples/encoding/encode_text.tscn
+res://examples/encoding/encode_text.gd
 res://addons/image_bytes/bytes_to_image.gd
+res://examples/decoding/decode_text.tscn
+res://examples/decoding/decode_text.gd

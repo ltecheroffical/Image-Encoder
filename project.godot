@@ -11,9 +11,8 @@ config_version=5
 [application]
 
 config/name="Image Encoder"
-run/main_scene="res://app.tscn"
+run/main_scene="res://examples/encoding/encode_text.tscn"
 config/features=PackedStringArray("4.2", "GL Compatibility")
-config/icon="res://icon.svg"
 
 [editor_plugins]
 
