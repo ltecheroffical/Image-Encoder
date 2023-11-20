@@ -1,3 +1,9 @@
+# Made by LTecher
+# MIT LICENSE
+#
+# This script works without the plugin,
+# Feel free to use in your own projects.
+
 class_name ImageBytes
 extends RefCounted
 ## A class to encode and decode bytes from and to images

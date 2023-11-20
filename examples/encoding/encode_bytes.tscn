@@ -1,0 +1,86 @@
+[gd_scene load_steps=3 format=3 uid="uid://bn6v2weo2tw4l"]
+
+[ext_resource type="Script" path="res://examples/encoding/encode_bytes.gd" id="1_638fs"]
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_kpnb4"]
+
+[node name="EncodeBytes" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_638fs")
+
+[node name="ResultImage" type="TextureRect" parent="."]
+unique_name_in_owner = true
+texture_filter = 1
+layout_mode = 1
+offset_left = 24.0
+offset_top = 24.0
+offset_right = 566.0
+offset_bottom = 484.0
+texture = SubResource("PlaceholderTexture2D_kpnb4")
+expand_mode = 1
+
+[node name="InputText" type="TextEdit" parent="."]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -522.0
+offset_top = -299.0
+offset_right = -32.0
+offset_bottom = 43.0
+grow_horizontal = 0
+grow_vertical = 2
+placeholder_text = "Input Base64 Here..."
+wrap_mode = 1
+
+[node name="Encoding" type="HBoxContainer" parent="."]
+layout_mode = 0
+offset_left = 635.0
+offset_top = 380.0
+offset_right = 1117.0
+offset_bottom = 428.0
+theme_override_constants/separation = 8
+
+[node name="EncodeButton" type="Button" parent="Encoding"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Encode Data"
+
+[node name="EncodeDivisor" type="SpinBox" parent="Encoding"]
+unique_name_in_owner = true
+layout_mode = 2
+min_value = 1.0
+max_value = 128.0
+value = 1.0
+allow_greater = true
+
+[node name="SaveImage" type="Button" parent="."]
+layout_mode = 0
+offset_left = 51.0
+offset_top = 508.0
+offset_right = 533.0
+offset_bottom = 556.0
+size_flags_horizontal = 3
+text = "Save Image"
+
+[node name="ImageDialog" type="FileDialog" parent="."]
+position = Vector2i(215, 65)
+size = Vector2i(667, 533)
+ok_button_text = "Save"
+dialog_hide_on_ok = true
+access = 2
+filters = PackedStringArray("*.png")
+use_native_dialog = true
+
+[connection signal="pressed" from="Encoding/EncodeButton" to="." method="_on_encode_pressed"]
+[connection signal="pressed" from="SaveImage" to="ImageDialog" method="show"]
+[connection signal="file_selected" from="ImageDialog" to="." method="_on_image_dialog_file_selected"]
+[connection signal="ready" from="ImageDialog" to="ImageDialog" method="hide"]
